@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  text-decoration: none;
+  font-family: bevregular;
+  list-style-type: none;
+}
+$body: 1.2rem;
+@font-face {
+  font-family: "bevregular";
+  src: url("./BeVietnam-Regular.woff") format("woff");
+}
+
+@mixin smallerdevs {
+  .wrapper {
+    height: auto;
+    width: 100%;
+    padding: 10px 30px;
+    overflow: hidden;
+    position: relative;
+    .post {
+      .top {
+        .profile {
+          flex-basis: 100%;
+          .image {
+            @include flexcenter;
+            flex-basis: 20%;
+            border-radius: 100%;
+            // overflow: hidden;
+            // width: 100%;
+            img {
+              box-shadow: 0 0 0 3px rgba($color: #88ff00, $alpha: 1);
+              border: 2px solid #fff;
+              width: 100%;
+              border-radius: 100%;
+              //   height: 100%;
+            }
+          }
+          .nameandtime {
+            flex-basis: 70%;
+            padding: 10px;
+            .name {
+              p {
+                font-size: $body -0.3rem;
+              }
+            }
+          }
+          .options {
+            flex-basis: 10%;
+            overflow: hidden;
+            i {
+              font-size: $body + 1rem;
+            }
+            .optionitems {
+              width: 100px;
+              left: 235px;
+              top: 60px;
+              background-color: #fff;
+              border-radius: 20px;
+              a {
+                padding: 10px;
+                font-weight: $body - 0.3rem;
+              }
+            }
+          }
+        }
+      }
+      .postedimage {
+        @include flexcenter;
+
+        // height: 300px;
+        img {
+          border-radius: 20px;
+          width: 100%;
+        }
+      }
+      .reactions {
+        .someoneloved {
+          p {
+            font-size: $body - 0.3rem;
+          }
+        }
+        .ctas {
+          .react {
+            button {
+              font-size: $body - 0.3rem;
+              height: 30px;
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+    .showlikers {
+      .comment {
+        flex-wrap: wrap;
+        .input {
+          flex-basis: 70%;
+        }
+        .button {
+          flex-basis: 10%;
+          button {
+          }
+        }
+      }
+    }
+  }
+}
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  .container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000, $alpha: 0.2);
+    .wrapper {
+      position: relative;
+      background-color: #fff;
+      .confirmed {
+        position: absolute;
+        transition: 0.4s all;
+        z-index: 20;
+        top: -100%;
+        width: 100%;
+        left: 0;
+        .text {
+          padding: 10px;
+          background-color: rgb(23, 196, 0);
+          width: 90%;
+          margin: 0 auto;
+          border-radius: 10px;
+          filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+          .confirm {
+            display: block;
+            color: #fff;
+          }
+        }
+      }
+      .post {
+        display: flex;
+        flex-direction: column;
+        .top {
+          .profile {
+            display: flex;
+            .image {
+              img {
+                // display: none;
+              }
+            }
+            .nameandtime {
+              .name {
+                p {
+                  font-weight: 600;
+                }
+              }
+            }
+            .options {
+              i {
+                font-weight: 600;
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+          .options {
+            // position: relative;
+            .optionitems {
+              position: absolute;
+              display: none;
+              box-shadow: 0 0 0 3px rgba($color: #000, $alpha: 0.2);
+              transition: 0.3s all ease-in-out;
+              border-radius: 20px;
+              background-color: #fff;
+              a {
+                display: block;
+                color: #000;
+                transition: 0.3s all ease-in-out;
+                &:hover {
+                  font-weight: 600;
+                  background-color: rgba($color: #000, $alpha: 0.2);
+                }
+              }
+            }
+          }
+        }
+        .postedimage {
+          width: 100%;
+          overflow: hidden;
+          img {
+            // width: 100%;
+            // height: 100%;
+          }
+        }
+        .reactions {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          .someoneloved {
+            width: 100%;
+            padding: 10px;
+            p {
+              color: rgba($color: rgb(0, 57, 133), $alpha: 01);
+            }
+          }
+          .ctas {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            div {
+              flex-basis: 33%;
+              button {
+                width: 90%;
+                background-color: transparent;
+                font-size: $body;
+                cursor: pointer;
+                border: none;
+                height: 50px;
+                outline: none;
+                border-radius: 20px;
+
+                &:hover {
+                  font-weight: bolder;
+                }
+              }
+              #react {
+                &:hover {
+                  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+                  color: rgba(255, 0, 0, 0.9);
+                }
+              }
+              .reacted {
+                box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+                color: rgba(255, 0, 0, 0.9);
+              }
+            }
+          }
+        }
+      }
+      .showlikers {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        z-index: 2;
+        transition: 0.3s all;
+        #hidelikerspage {
+          color: rgba(255, 0, 0, 0.9);
+          font-size: $body + 1rem;
+          margin: 20px;
+        }
+        .nameofliker {
+          z-index: 5;
+          position: absolute;
+          bottom: 0;
+          background-color: #fff;
+          border-radius: 10px 10px 0 0;
+          width: 100%;
+          .name {
+            display: block;
+            padding: 20px;
+            p {
+              display: block;
+              width: 100%;
+              color: rgba(255, 0, 0, 0.9);
+              font-weight: bold;
+              text-transform: capitalize;
+            }
+          }
+        }
+        .comment {
+          position: absolute;
+          bottom: 0;
+          background-color: #fff;
+          border-radius: 10px 10px 0 0;
+          width: 100%;
+          padding: 40px;
+          display: flex;
+          flex-direction: row;
+          .input {
+            input {
+              background-color: rgba(0, 0, 0, 0.15);
+              border-radius: 10px 0 0 10px;
+              padding: 10px 20px;
+              width: 100%;
+              border: none;
+              filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+              outline: none;
+            }
+          }
+          .button {
+            flex-basis: 20%;
+
+            button {
+              border-radius: 0 10px 10px 0;
+              width: 100%;
+              padding: 10px 20px;
+              border: none;
+              font-weight: 600;
+              // filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+              color: rgb(0, 127, 231);
+              outline: none;
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+              }
+            }
+          }
+          .commentbox {
+            flex-basis: 100%;
+            p {
+              width: 90%;
+              background-color: #00ffbf42;
+              display: block;
+              padding: 10px;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 0.6);
+              margin: 10px 0;
+              border-radius: 10px;
+              filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+            }
+          }
+        }
+        .share {
+          position: absolute;
+          bottom: 0;
+          background-color: #fff;
+          border-radius: 10px 10px 0 0;
+          width: 100%;
+          //   display: flex;
+          //   flex-direction: column;
+          button {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            height: 50px;
+            cursor: pointer;
+            &:hover {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      .hidden {
+        top: 100%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    @include smallerdevs;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 1025px) {
+  .container {
+    @include smallerdevs;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .container {
+    overflow: hidden;
+
+    .wrapper {
+      width: 70%;
+      margin: 40px auto;
+      // height: 90%;
+      overflow: hidden;
+      padding: 10px 30px;
+      border-radius: 30px;
+      filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+      .post {
+        .top {
+          .profile {
+            flex-basis: 100%;
+            .image {
+              @include flexcenter;
+              flex-basis: 10%;
+              border-radius: 100%;
+              // overflow: hidden;
+              // width: 100%;
+              img {
+                box-shadow: 0 0 0 3px rgba($color: #88ff00, $alpha: 1);
+                border: 2px solid #fff;
+                width: 100%;
+                border-radius: 100%;
+                height: 100%;
+              }
+            }
+            .nameandtime {
+              flex-basis: 80%;
+              padding: 10px 20px;
+              .name {
+                p {
+                  font-size: $body;
+                }
+              }
+            }
+            .options {
+              i {
+                font-size: $body + 1rem;
+              }
+              .optionitems {
+                overflow: hidden;
+                left: 800px;
+                top: 60px;
+                a {
+                  font-size: $body;
+                  padding: 10px 20px;
+                }
+              }
+            }
+          }
+        }
+        .postedimage {
+          @include flexcenter;
+
+          height: 300px;
+          a {
+            text-align: center;
+            img {
+              border-radius: 20px;
+              width: 30%;
+            }
+          }
+        }
+        .reactions {
+          .ctas {
+          }
+        }
+      }
+      .showlikers {
+        .comment {
+          flex-wrap: wrap;
+          .input {
+            flex-basis: 80%;
+          }
+          .button {
+            flex-basis: 20%;
+          }
+        }
+      }
+    }
+  }
+}

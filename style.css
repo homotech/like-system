@@ -1,0 +1,595 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: none;
+  font-family: bevregular;
+  list-style-type: none;
+}
+
+@font-face {
+  font-family: "bevregular";
+  src: url("./BeVietnam-Regular.woff") format("woff");
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body .container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body .container .wrapper {
+  position: relative;
+  background-color: #fff;
+}
+
+body .container .wrapper .confirmed {
+  position: absolute;
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+  z-index: 20;
+  top: -100%;
+  width: 100%;
+  left: 0;
+}
+
+body .container .wrapper .confirmed .text {
+  padding: 10px;
+  background-color: #17c400;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+}
+
+body .container .wrapper .confirmed .text .confirm {
+  display: block;
+  color: #fff;
+}
+
+body .container .wrapper .post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container .wrapper .post .top .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .container .wrapper .post .top .profile .nameandtime .name p {
+  font-weight: 600;
+}
+
+body .container .wrapper .post .top .profile .options i {
+  font-weight: 600;
+}
+
+body .container .wrapper .post .top .profile .options i:nth-child(2) {
+  display: none;
+}
+
+body .container .wrapper .post .top .options .optionitems {
+  position: absolute;
+  display: none;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+body .container .wrapper .post .top .options .optionitems a {
+  display: block;
+  color: #000;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+body .container .wrapper .post .top .options .optionitems a:hover {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body .container .wrapper .post .postedimage {
+  width: 100%;
+  overflow: hidden;
+}
+
+body .container .wrapper .post .reactions {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container .wrapper .post .reactions .someoneloved {
+  width: 100%;
+  padding: 10px;
+}
+
+body .container .wrapper .post .reactions .someoneloved p {
+  color: #003985;
+}
+
+body .container .wrapper .post .reactions .ctas {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body .container .wrapper .post .reactions .ctas div {
+  -ms-flex-preferred-size: 33%;
+      flex-basis: 33%;
+}
+
+body .container .wrapper .post .reactions .ctas div button {
+  width: 90%;
+  background-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  height: 50px;
+  outline: none;
+  border-radius: 20px;
+}
+
+body .container .wrapper .post .reactions .ctas div button:hover {
+  font-weight: bolder;
+}
+
+body .container .wrapper .post .reactions .ctas div #react:hover {
+  -webkit-box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+          box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+  color: rgba(255, 0, 0, 0.9);
+}
+
+body .container .wrapper .post .reactions .ctas div .reacted {
+  -webkit-box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+          box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+  color: rgba(255, 0, 0, 0.9);
+}
+
+body .container .wrapper .showlikers {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 2;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+body .container .wrapper .showlikers #hidelikerspage {
+  color: rgba(255, 0, 0, 0.9);
+  font-size: 2.2rem;
+  margin: 20px;
+}
+
+body .container .wrapper .showlikers .nameofliker {
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+body .container .wrapper .showlikers .nameofliker .name {
+  display: block;
+  padding: 20px;
+}
+
+body .container .wrapper .showlikers .nameofliker .name p {
+  display: block;
+  width: 100%;
+  color: rgba(255, 0, 0, 0.9);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+body .container .wrapper .showlikers .comment {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body .container .wrapper .showlikers .comment .input input {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px 0 0 10px;
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  -webkit-filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+          filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+  outline: none;
+}
+
+body .container .wrapper .showlikers .comment .button {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+}
+
+body .container .wrapper .showlikers .comment .button button {
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  font-weight: 600;
+  color: #007fe7;
+  outline: none;
+}
+
+body .container .wrapper .showlikers .comment .button button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body .container .wrapper .showlikers .comment .commentbox {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+body .container .wrapper .showlikers .comment .commentbox p {
+  width: 90%;
+  background-color: #00ffbf42;
+  display: block;
+  padding: 10px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 10px 0;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+          filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.4));
+}
+
+body .container .wrapper .showlikers .share {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+body .container .wrapper .showlikers .share button {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 50px;
+  cursor: pointer;
+}
+
+body .container .wrapper .showlikers .share button:hover {
+  font-weight: 700;
+}
+
+body .container .wrapper .hidden {
+  top: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .container .wrapper {
+    height: auto;
+    width: 100%;
+    padding: 10px 30px;
+    overflow: hidden;
+    position: relative;
+  }
+  .container .wrapper .post .top .profile {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container .wrapper .post .top .profile .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+    border-radius: 100%;
+  }
+  .container .wrapper .post .top .profile .image img {
+    -webkit-box-shadow: 0 0 0 3px #88ff00;
+            box-shadow: 0 0 0 3px #88ff00;
+    border: 2px solid #fff;
+    width: 100%;
+    border-radius: 100%;
+  }
+  .container .wrapper .post .top .profile .nameandtime {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    padding: 10px;
+  }
+  .container .wrapper .post .top .profile .nameandtime .name p {
+    font-size: 1.2rem -0.3rem;
+  }
+  .container .wrapper .post .top .profile .options {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+    overflow: hidden;
+  }
+  .container .wrapper .post .top .profile .options i {
+    font-size: 2.2rem;
+  }
+  .container .wrapper .post .top .profile .options .optionitems {
+    width: 100px;
+    left: 235px;
+    top: 60px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  .container .wrapper .post .top .profile .options .optionitems a {
+    padding: 10px;
+    font-weight: 0.9rem;
+  }
+  .container .wrapper .post .postedimage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .wrapper .post .postedimage img {
+    border-radius: 20px;
+    width: 100%;
+  }
+  .container .wrapper .post .reactions .someoneloved p {
+    font-size: 0.9rem;
+  }
+  .container .wrapper .post .reactions .ctas .react button {
+    font-size: 0.9rem;
+    height: 30px;
+    border-radius: 0;
+  }
+  .container .wrapper .showlikers .comment {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .wrapper .showlikers .comment .input {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+  }
+  .container .wrapper .showlikers .comment .button {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 1025px) {
+  .container .wrapper {
+    height: auto;
+    width: 100%;
+    padding: 10px 30px;
+    overflow: hidden;
+    position: relative;
+  }
+  .container .wrapper .post .top .profile {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container .wrapper .post .top .profile .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+    border-radius: 100%;
+  }
+  .container .wrapper .post .top .profile .image img {
+    -webkit-box-shadow: 0 0 0 3px #88ff00;
+            box-shadow: 0 0 0 3px #88ff00;
+    border: 2px solid #fff;
+    width: 100%;
+    border-radius: 100%;
+  }
+  .container .wrapper .post .top .profile .nameandtime {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    padding: 10px;
+  }
+  .container .wrapper .post .top .profile .nameandtime .name p {
+    font-size: 1.2rem -0.3rem;
+  }
+  .container .wrapper .post .top .profile .options {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+    overflow: hidden;
+  }
+  .container .wrapper .post .top .profile .options i {
+    font-size: 2.2rem;
+  }
+  .container .wrapper .post .top .profile .options .optionitems {
+    width: 100px;
+    left: 235px;
+    top: 60px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  .container .wrapper .post .top .profile .options .optionitems a {
+    padding: 10px;
+    font-weight: 0.9rem;
+  }
+  .container .wrapper .post .postedimage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .wrapper .post .postedimage img {
+    border-radius: 20px;
+    width: 100%;
+  }
+  .container .wrapper .post .reactions .someoneloved p {
+    font-size: 0.9rem;
+  }
+  .container .wrapper .post .reactions .ctas .react button {
+    font-size: 0.9rem;
+    height: 30px;
+    border-radius: 0;
+  }
+  .container .wrapper .showlikers .comment {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .wrapper .showlikers .comment .input {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+  }
+  .container .wrapper .showlikers .comment .button {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .container {
+    overflow: hidden;
+  }
+  .container .wrapper {
+    width: 70%;
+    margin: 40px auto;
+    overflow: hidden;
+    padding: 10px 30px;
+    border-radius: 30px;
+    -webkit-filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(-2px 2px 7px rgba(0, 0, 0, 0.3));
+  }
+  .container .wrapper .post .top .profile {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container .wrapper .post .top .profile .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+    border-radius: 100%;
+  }
+  .container .wrapper .post .top .profile .image img {
+    -webkit-box-shadow: 0 0 0 3px #88ff00;
+            box-shadow: 0 0 0 3px #88ff00;
+    border: 2px solid #fff;
+    width: 100%;
+    border-radius: 100%;
+    height: 100%;
+  }
+  .container .wrapper .post .top .profile .nameandtime {
+    -ms-flex-preferred-size: 80%;
+        flex-basis: 80%;
+    padding: 10px 20px;
+  }
+  .container .wrapper .post .top .profile .nameandtime .name p {
+    font-size: 1.2rem;
+  }
+  .container .wrapper .post .top .profile .options i {
+    font-size: 2.2rem;
+  }
+  .container .wrapper .post .top .profile .options .optionitems {
+    overflow: hidden;
+    left: 800px;
+    top: 60px;
+  }
+  .container .wrapper .post .top .profile .options .optionitems a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  .container .wrapper .post .postedimage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 300px;
+  }
+  .container .wrapper .post .postedimage a {
+    text-align: center;
+  }
+  .container .wrapper .post .postedimage a img {
+    border-radius: 20px;
+    width: 30%;
+  }
+  .container .wrapper .showlikers .comment {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .wrapper .showlikers .comment .input {
+    -ms-flex-preferred-size: 80%;
+        flex-basis: 80%;
+  }
+  .container .wrapper .showlikers .comment .button {
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
